@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<div id="content"></div>
+<input type="button" id="jsonbtn" value="取用户的姓名">
+
+<script>
+    $('#jsonbtn').on('click', function(){
+        var userinfo = {'name': '岑大慰4', 'username': 'www', 'password': '888888884'};
+        $.ajax({
+            'url': "getUsers.php?action=delete_user",
+            'dataType': 'json',
+            'type': 'post',
+            'data': {
+            	'id': 4,
+            	'userinfo': JSON.stringify(userinfo)
+            },
+            'success': function(result){
+                console.log(result);
+                //$('#content').html(decodeURIComponent(result[0].name));
+            },
+            'error': function(){
+                console.log("error");
+            }
+        })
+    })
+</script>
+</body>
+</html>
